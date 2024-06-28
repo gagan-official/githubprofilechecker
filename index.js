@@ -26,15 +26,15 @@ const updateUI = function (status) {
   if (!card) {
     card = document.createElement("a");
     card.setAttribute("class", "card single");
-    card.setAttribute("href", data?.html_url);
     card.setAttribute("target", "blank");
-    card.setAttribute("title", `Go to ${data?.login}'s github profile`);
     document.body.appendChild(card);
   }
-
+  
   let loader = document.querySelector(".loader");
-
+  
   card.innerHTML = data ? innerChildren : "";
+  card.setAttribute("href", data?.html_url);
+  card.setAttribute("title", `Go to ${data?.login}'s github profile`);
 
   if (!data && !loader) {
     loader = document.createElement("div");
